@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  backend:
+    build: .
+    container_name: pato_backend
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/patoStudyDB
+      - JWT_SECRET=Patojwt
+      - ADMIN_USER=admin
+      - ADMIN_PASSWORD=admin123
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6
+    container_name: pato_mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
