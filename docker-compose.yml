@@ -2,7 +2,9 @@ version: "3.8"
 
 services:
   backend:
-    build: .
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: pato_backend
     ports:
       - "3000:3000"
@@ -13,6 +15,16 @@ services:
       - ADMIN_PASSWORD=admin123
     depends_on:
       - mongo
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: pato_frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
 
   mongo:
     image: mongo:6
