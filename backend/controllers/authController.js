@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
-const CLAVE_JWT = process.env.JWT_SECRET || "cambiar_clave_jwt_en_env";
+const CLAVE_JWT = process.env.JWT_SECRET || "Patojwt";
 
 const register = async (req, res, next) => {
   try {

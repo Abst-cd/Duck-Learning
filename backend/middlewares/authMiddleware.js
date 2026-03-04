@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-const CLAVE_JWT = process.env.JWT_SECRET || "cambiar_clave_jwt_en_env";
+const CLAVE_JWT = process.env.JWT_SECRET || "Patojwt";
 
 const authenticateToken = (req, res, next) => {
   const encabezadoAuth = req.headers.authorization;
