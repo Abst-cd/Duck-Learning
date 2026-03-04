@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const crearAdminSiNoExiste = async () => {
   const usuarioAdmin = process.env.ADMIN_USER || "admin_demo";
-  const passwordAdmin = process.env.ADMIN_PASSWORD || "cambiar_password_admin";
+  const passwordAdmin = process.env.ADMIN_PASSWORD || "admin456";
 
   const adminActual = await User.findOne({ username: usuarioAdmin });
   if (!adminActual) {
